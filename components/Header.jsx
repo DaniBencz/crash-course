@@ -1,21 +1,15 @@
-import styles from '../styles/Header.module.css'
+import styles from "../styles/Header.module.css";
 
 const Header = () => {
-  const random = Math.random()
+  const random = Math.random();
   return (
     <div>
-        <h1 className='title'>
-            <span>My First Next</span>
-        </h1>
-        <style jsx>
-            {`
-                .title {
-                    color: ${random > .5 ? 'magenta' : 'blue'}
-                }
-            `}
-        </style>
+      <h1 className={styles.title}>
+        <span>My First</span> Next
+      </h1>
+      <p className={styles.description}>Practice makes perfect</p>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,0 +1,9 @@
+- TypeScript
+    https://nextjs.org/docs/basic-features/typescript
+- State
+    https://blog.logrocket.com/guide-state-management-next-js/
+- PWA
+    https://medium.com/geekculture/how-to-make-a-next-js-app-a-pwa-a5e2b13da548
+    https://www.npmjs.com/package/next-pwa
+- Testing
+    https://nextjs.org/docs/testing#jest-and-react-testing-library
