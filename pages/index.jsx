@@ -21,14 +21,9 @@ export const getStaticProps = async () => {
   const articles = await res.json();
 
   return {
+    // gets passed to components as props within the module
     props: { articles },
   };
 };
-
-// fetch at each request
-// export const getServerSideProps
-
-// fetch at build-time
-// export const getStaticPaths
 
 export default Home;
