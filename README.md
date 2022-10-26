@@ -1,4 +1,6 @@
-Based on [this](https://youtu.be/mTz0GXj8NN0) tutorial
+## My First Next
+
+A Next.Js practice project based on [this](https://youtu.be/mTz0GXj8NN0) tutorial.
 
 **install**: `npm ci` or `pnpm i`
 

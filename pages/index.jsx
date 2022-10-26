@@ -5,7 +5,7 @@ const Home = ({ articles }) => {
   return (
     <div>
       <Head>
-        <title>Next App - Home</title>
+        <title>My First Next</title>
         <meta name="keywords" content="cool stuff"></meta>
       </Head>
     <ArticleList articles={articles}></ArticleList>
