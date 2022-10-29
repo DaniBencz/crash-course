@@ -12,7 +12,7 @@ const Article = ({ article }) => {
   // const [isLoading, setLoading] = useState(false);
   // useEffect(() => {
   //   setLoading(true);
-  //   fetch("/api/hello")
+  //   fetch("/api/articles/1")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setData(data);
@@ -20,8 +20,8 @@ const Article = ({ article }) => {
   //     });
   // }, []);
   // if (isLoading) return <p>Loading...</p>;
-  // if (!data) return <p>No profile data</p>;
-  // console.log("data is", data);
+  // if (!data) return <p>No article found</p>;
+  // console.log("article data:", data);
 
   return (
     <>
@@ -49,7 +49,8 @@ const Article = ({ article }) => {
 // data fetching happens here
 export const getStaticProps = async (context) => {
   const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
+    // `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
+    `${process.env.HOST}/api/articles/${context.params.id}`
   );
   const article = await res.json();
 
@@ -60,17 +61,17 @@ export const getStaticProps = async (context) => {
 };
 
 // this function is purely just to tell Next, how many routes it must generate
+// thus, how many times to run getStaticProps, and with what params
 export const getStaticPaths = async () => {
   const paths = [
-    {params: {id: '1'}}, // specify each route parameters
-    {params: {id: '2'}},
-    {params: {id: '3'}},
-    {params: {id: '4'}},
-    {params: {id: '5'}},
-    // {params: {id: '6'}}, // this page will return 404
-  ]
+    { params: { id: "1" } }, // specify each route parameters
+    { params: { id: "2" } },
+    { params: { id: "3" } },
+    // {params: {id: '4'}}, // this page will return 404
+  ];
 
   // const res = await fetch(`https://jsonplaceholder.typicode.com/posts`);
+  // const res = await fetch(`${process.env.HOST}/api/articles`);
   // const articles = await res.json();
   // const paths = articles
   //   .map((article) => article.id)

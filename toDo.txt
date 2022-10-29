@@ -7,4 +7,3 @@
     https://www.npmjs.com/package/next-pwa
 - Testing
     https://nextjs.org/docs/testing#jest-and-react-testing-library
-- CI to build and deploy
