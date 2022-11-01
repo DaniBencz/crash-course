@@ -1,17 +1,12 @@
-import Head from "next/head";
 import ArticleList from "../components/ArticleList";
 
 const Home = ({ articles }) => {
   return (
-    <div>
-      <Head>
-        <title>My First Next</title>
-        <meta name="keywords" content="cool stuff"></meta>
-      </Head>
-    <ArticleList articles={articles}></ArticleList>
-    </div>
+    <>
+      <ArticleList articles={articles}></ArticleList>
+    </>
   );
-}
+};
 
 // fetch at build-time
 export const getStaticProps = async () => {
