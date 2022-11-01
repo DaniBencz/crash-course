@@ -1,6 +1,9 @@
 import ArticleList from "../components/ArticleList";
+import { GetStaticProps } from "next";
+import { Article } from "../types";
 
-const Home = ({ articles }) => {
+type Props = { articles: Article[]; };
+const Home = ({ articles }: Props) => {
   return (
     <>
       <ArticleList articles={articles}></ArticleList>
@@ -9,7 +12,7 @@ const Home = ({ articles }) => {
 };
 
 // fetch at build-time
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   // at build time, the hostname is unknown, so it has to be set explicitly
   const res = await fetch(`${process.env.HOST}/api/articles`);
   const articles = await res.json();

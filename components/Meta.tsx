@@ -1,6 +1,11 @@
 import Head from "next/head";
 
-const Meta = ({ title, keywords, description }) => {
+type Props = {
+  title: string,
+  keywords: string,
+  description: string,
+};
+const Meta = ({ title, keywords, description }: Props) => {
   return (
     <Head>
       <title>{title}</title>
@@ -8,16 +13,16 @@ const Meta = ({ title, keywords, description }) => {
       <meta name="keywords" content={keywords} />
       <meta name="author" content="Daniel Bencz" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="./favicon.ico"></link>
       <base target="_blank"></base>
     </Head>
   );
 };
 
-Meta.defaultProps = {
+const defaultProps: Props = {
   title: "My First Next",
   keywords: "next.js, danibencz",
   description: "A Next.Js Practice App",
 };
+Meta.defaultProps = defaultProps;
 
 export default Meta;

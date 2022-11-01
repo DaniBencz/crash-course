@@ -2,8 +2,11 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Meta from "../../../components/Meta";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { Article } from "../../../types";
 
-const Article = ({ article }) => {
+type Props = { article: Article; };
+const Article = ({ article }: Props) => {
   // example for using router
   // const router = useRouter();
   // const { id } = router.query;
@@ -49,10 +52,10 @@ const Article = ({ article }) => {
 // };
 
 // data fetching happens here
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const res = await fetch(
     // `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
-    `${process.env.HOST}/api/articles/${context.params.id}`
+    `${process.env.HOST || "localhost:3000"}/api/articles/${context?.params?.id || "1"}`
   );
   const article = await res.json();
 
@@ -64,7 +67,7 @@ export const getStaticProps = async (context) => {
 
 // this function is purely just to tell Next, how many routes it must generate
 // thus, how many times to run getStaticProps, and with what params
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = [
     { params: { id: "1" } }, // specify each route parameters
     { params: { id: "2" } },

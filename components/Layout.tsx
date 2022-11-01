@@ -3,7 +3,8 @@ import Nav from "./Nav";
 import Header from "./Header";
 import Meta from "./Meta";
 
-export const Layout = ({ children }) => {
+type Props = { children: any; };
+export const Layout = ({ children }: Props) => {
   return (
     <>
       <Meta />

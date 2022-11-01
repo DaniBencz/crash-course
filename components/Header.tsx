@@ -1,7 +1,6 @@
 import styles from "../styles/Header.module.css";
 
 const Header = () => {
-  const random = Math.random();
   return (
     <div>
       <h1 className={styles.title}>

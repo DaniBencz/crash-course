@@ -1,7 +1,8 @@
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { articles } from '../../../data';
 
 // base-path/api/articles/:id
-const handler = (req, res) => {
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
     const { id } = req.query;
     const filtered = articles.filter((article) => article.id === id);
 
